@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign("id_product_type")->references("id")->on("product_types");
             $table->string("name");
             $table->decimal("price");
-            $table->binary("image");
+            $table->binary("image")->nullable();
             $table->timestamps();
 
             
