@@ -16,19 +16,27 @@ class RegisteredUserController extends Controller
      * Handle an incoming registration request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      *
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
 
+
+        $request->validate([
+            'name' => ['required', 'string'],
+            'lastname' => ['required', 'string'],
+            'address' => ['required', 'string'],
+            'contactNumber' => ['required', 'string'],
+            'password'=> ['required', 'string'],
+            'email' => ['required', 'email'],
+        ]);
         $user = User::create([
             'name' => $request->name,
             'lastname' => $request->lastname,
             'address' => $request->address,
             'contactNumber' => $request->contactNumber,
-            // 'birthdate' => $ $request->birthdate,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
@@ -36,6 +44,6 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
         Auth::login($user);
 
-        return response()->json(["user" => $user]) ;
+        return response()->noContent();
     }
 }

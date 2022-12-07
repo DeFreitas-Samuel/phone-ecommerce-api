@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_DRIVER', 'file'),
+    'default' => env('CACHE_DRIVER', 'none'),
 
     /*
     |--------------------------------------------------------------------------
@@ -71,6 +71,10 @@ return [
                     'weight' => 100,
                 ],
             ],
+        ],
+
+        'none' => [
+            'driver' => 'null',
         ],
 
         'redis' => [
