@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\TestController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,3 +24,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::post('/register', [RegisteredUserController::class, 'store'])
     ->middleware('guest')
     ->name('register');
+
+Route::get('/login', [TestController::class, 'index'])
+    ->middleware('guest')
+    ->name('login');
