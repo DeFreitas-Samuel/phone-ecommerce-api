@@ -18,7 +18,11 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->firstname(),
+            'lastname' => fake()->lastName(),
+            'address' => fake()->address(),
+            'contact_number' => fake()->phoneNumber(),
+            'birthdate' => fake()->dateTimeBetween('-70 years', '15 years'),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
