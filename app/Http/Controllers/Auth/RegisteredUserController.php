@@ -8,7 +8,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
+
 
 class RegisteredUserController extends Controller
 {
@@ -42,11 +42,12 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
 
+
         ]);
 
         event(new Registered($user));
         Auth::login($user);
 
-        return response()->noContent();
+        return response()->noContent(201);
     }
 }
