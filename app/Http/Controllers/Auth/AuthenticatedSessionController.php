@@ -17,7 +17,16 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
+        $test = $request->authenticate();
+
+        if(isset($test['error'])){
+            if($test['error'] === 'email'){
+                return response()->json(['error' => 'Email was not found in the database'], 401);
+            }
+            if($test['error'] === 'password'){
+                return response()->json(['error' => 'The password is incorrect'], 401);
+            }
+        }
 
         $request->session()->regenerate();
 
