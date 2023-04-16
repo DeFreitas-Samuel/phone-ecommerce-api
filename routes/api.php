@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Auth\SandboxController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +19,21 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/register', [RegisteredUserController::class, 'store']);
+Route::middleware(['sanctum'])->group(function () {
+    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth:sanctum');
 });
+
 
 
 Route::get('products', [ProductController::class, 'index']);
 Route::get('product/{id}', [ProductController::class, 'show']);
+
+
+
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/session', [SandboxController::class, 'show']);
+
+});

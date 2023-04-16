@@ -16,9 +16,11 @@ class SandboxController extends Controller
 {
     public function show(){
         if (Auth::check()) {
-            return response()->noContent(200);
-        } 
-        return response()->noContent(400);
+            return response()->json([
+                'nigga' => 'A star is motherfucking bornnnnnn!!!'
+            ]);
+        }
+        return response()->noContent(418);
     }
 
 }
