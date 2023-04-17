@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Http\Resources\UserDTO;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -58,9 +59,9 @@ class LoginRequest extends FormRequest
             // throw ValidationException::withMessages([
             //     'email' => __('auth.failed'),
             // ]);
-            return ['error' => 'password']; 
+            return ['error' => 'password'];
         }
-
+        return UserDTO::make($user);
         RateLimiter::clear($this->throttleKey());
     }
 

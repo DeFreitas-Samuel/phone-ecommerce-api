@@ -23,6 +23,7 @@ Route::post('/register', [RegisteredUserController::class, 'store']);
 Route::middleware(['sanctum'])->group(function () {
     Route::post('/login', [AuthenticatedSessionController::class, 'store']);
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth:sanctum');
+    Route::post('/register', [RegisteredUserController::class, 'store']);
 });
 
 

@@ -19,13 +19,13 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        $test = $request->authenticate();
+        $resultOfLogin = $request->authenticate();
 
-        if(isset($test['error'])){
-            if($test['error'] === 'email'){
+        if(isset($resultOfLogin['error'])){
+            if($resultOfLogin['error'] === 'email'){
                 return response()->json(['error' => 'Email was not found in the database'], 401);
             }
-            if($test['error'] === 'password'){
+            if($resultOfLogin['error'] === 'password'){
                 return response()->json(['error' => 'The password is incorrect'], 401);
             }
         }
@@ -33,7 +33,8 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         return response()->json([
-            'access_token' => $request->user()->createToken('frontend_token')->plainTextToken
+            'access_token' => $request->user()->createToken('frontend_token')->plainTextToken,
+            'user' => $resultOfLogin
         ]);
     }
 
