@@ -8,7 +8,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use App\Http\Resources\UserDTO;
 
 class RegisteredUserController extends Controller
 {
@@ -48,6 +48,10 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
         Auth::login($user);
 
-        return response()->noContent(201);
+        return response()->json([
+            'access_token' => $request->user()->createToken('frontend_token')->plainTextToken,
+            'user' => UserDTO::make($user)
+        ],201);
+
     }
 }

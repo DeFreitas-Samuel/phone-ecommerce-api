@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\SandboxController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,9 @@ Route::middleware(['sanctum'])->group(function () {
 
 Route::get('products', [ProductController::class, 'index']);
 Route::get('product/{id}', [ProductController::class, 'show']);
+Route::get('images/{name}', [ImageController::class, 'show']);
 
+Route::get('image/test', [ImageController::class, 'test']);
 
 
 
