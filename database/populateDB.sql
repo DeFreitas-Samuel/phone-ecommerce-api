@@ -1,5 +1,12 @@
 #Remember to run php artisan migrate:refresh
 
+INSERT INTO `payment_methods` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Cash on Delivery', NULL, NULL),
+(2, 'Debit/Credit Card', NULL, NULL),
+(3, 'Paypal', NULL, NULL),
+(4, 'Bank Transfer', NULL, NULL),
+(5, 'Apple Pay/Google Pay', NULL, NULL);
+
 INSERT INTO `brands` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'Apple', 'Manufacturer of iPhones, iPads, and Macs.', NULL, NULL),
 (2, 'Samsung', 'Manufacturer of Galaxy phones and tablets.', NULL, NULL),

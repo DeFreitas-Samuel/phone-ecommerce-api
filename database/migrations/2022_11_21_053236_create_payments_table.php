@@ -22,7 +22,6 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign("id_bill")->references("id")->on("bills");
-            $table->foreign("id_user")->references("id")->on("users");
             $table->foreign("id_payment_method")->references("id")->on("payment_methods");
         });
     }
