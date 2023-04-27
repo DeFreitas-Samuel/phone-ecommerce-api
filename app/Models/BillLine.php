@@ -9,6 +9,11 @@ class BillLine extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'quantity',
+        'price'
+    ];
+
     public function bill(): BelongsTo
     {
         return $this->belongsTo(Bill::class);

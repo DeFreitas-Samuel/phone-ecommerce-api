@@ -11,6 +11,11 @@ class Bill extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'total',
+        'amount_due'
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
