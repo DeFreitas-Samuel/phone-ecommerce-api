@@ -11,7 +11,8 @@ class Payment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'amount'
+        'total',
+        'amount_due'
     ];
 
     public function user(): BelongsTo
