@@ -8,6 +8,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\SandboxController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ImageController;
+use \App\Http\Controllers\PurchaseController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,5 +41,5 @@ Route::get('image/test', [ImageController::class, 'test']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/session', [SandboxController::class, 'show']);
-
+    Route::post('/purchase', [PurchaseController::class, 'store']);
 });
