@@ -8,8 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\SandboxController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ImageController;
-use \App\Http\Controllers\PurchaseController;
-
+use App\Http\Controllers\PurchaseController;
 
 /*
 |--------------------------------------------------------------------------
