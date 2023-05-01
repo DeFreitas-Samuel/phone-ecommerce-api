@@ -33,7 +33,7 @@ INSERT INTO `product_types` (`id`, `name`, `description`, `created_at`, `updated
 (9, 'PC Components', 'Individual components that can be used to build a computer such as CPUs, GPUs, and RAM.', NULL, NULL),
 (10, 'Audio Equipment', 'Speakers, headphones, and other audio accessories for use with computers and other devices.', NULL, NULL);
 
-INSERT INTO `products` (`id`, `id_brand`, `id_product_type`, `name`, `price`, `description`, `specifications`, `imageUrl`, `created_at`, `updated_at`) VALUES
+INSERT INTO `products` (`id`, `brand_id`, `product_type_id`, `name`, `price`, `description`, `specifications`, `imageUrl`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, 'MacBook Pro', '1999.99', 'Powerful laptop for professionals', '16-inch Retina display, M1 Pro chip, up to 64GB memory', 'http:/localhost:8000/api/images/1.jpg', NULL, '2023-04-24 09:58:10'),
 (2, 2, 1, 'Galaxy Book Pro 360', '1199.99', 'Thin and light 2-in-1 laptop', '13.3-inch Super AMOLED display, Intel Core i7, 16GB memory', 'http:/localhost:8000/api/images/2.jpg', NULL, '2023-04-24 09:58:10'),
 (3, 3, 2, 'Inspiron Desktop', '499.99', 'Budget desktop for home use', '10th Gen Intel Core i5, 8GB memory, 512GB SSD', 'http:/localhost:8000/api/images/3.jpg', NULL, '2023-04-24 09:58:10'),

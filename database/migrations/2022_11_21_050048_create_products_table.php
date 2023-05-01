@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("id_brand");
-            $table->foreign("id_brand")->references("id")->on("brands");
-            $table->unsignedBigInteger("id_product_type");
-            $table->foreign("id_product_type")->references("id")->on("product_types");
+            $table->unsignedBigInteger("brand_id");
+            $table->foreign("brand_id")->references("id")->on("brands");
+            $table->unsignedBigInteger("product_type_id");
+            $table->foreign("product_type_id")->references("id")->on("product_types");
             $table->string("name");
             $table->decimal("price");
             $table->string("description");

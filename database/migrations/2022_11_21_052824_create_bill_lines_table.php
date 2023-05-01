@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('bill_lines', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("id_bill");
-            $table->unsignedBigInteger("id_product");
+            $table->unsignedBigInteger("bill_id");
+            $table->unsignedBigInteger("product_id");
             $table->integer("quantity");
             $table->decimal("price");
             $table->timestamps();
 
-            $table->foreign("id_bill")->references("id")->on("bills");
-            $table->foreign("id_product")->references("id")->on("products");
+            $table->foreign("bill_id")->references("id")->on("bills");
+            $table->foreign("product_id")->references("id")->on("products");
 
         });
     }

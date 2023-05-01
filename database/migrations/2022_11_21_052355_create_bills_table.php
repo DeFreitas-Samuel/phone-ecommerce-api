@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("id_user");
+            $table->unsignedBigInteger("user_id");
             $table->decimal("total");
             $table->decimal("amount_due");
             $table->timestamps();
 
-            $table->foreign("id_user")->references("id")->on("users");
+            $table->foreign("user_id")->references("id")->on("users");
         });
     }
 
