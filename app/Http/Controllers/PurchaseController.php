@@ -11,13 +11,11 @@ use App\Models\Product;
 use App\Models\User;
 use Error;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class PurchaseController extends Controller
 {
     public function store(Request $request)
     {
-        //return response()->json(['response'=> $request->all()]);
 
         $order = $request->all();
         $totalFromOrder = $order['total'];
