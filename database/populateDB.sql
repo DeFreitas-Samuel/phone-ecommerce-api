@@ -2,10 +2,8 @@
 
 INSERT INTO `payment_methods` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Cash on Delivery', NULL, NULL),
-(2, 'Debit/Credit Card', NULL, NULL),
-(3, 'Paypal', NULL, NULL),
-(4, 'Bank Transfer', NULL, NULL),
-(5, 'Apple Pay/Google Pay', NULL, NULL);
+(2, 'Debit/Credit Card', NULL, NULL);
+
 
 INSERT INTO `brands` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'Apple', 'Manufacturer of iPhones, iPads, and Macs.', NULL, NULL),
@@ -39,7 +37,8 @@ INSERT INTO `products` (`id`, `brand_id`, `product_type_id`, `name`, `price`, `d
 (3, 3, 2, 'Inspiron Desktop', '499.99', 'Budget desktop for home use', '10th Gen Intel Core i5, 8GB memory, 512GB SSD', 'http://localhost:8000/api/images/3.jpg', NULL, '2023-04-24 09:58:10'),
 (4, 4, 5, 'Pavilion Gaming Desktop', '799.99', 'Desktop for gaming enthusiasts', 'AMD Ryzen 5, NVIDIA GeForce GTX 1650 graphics, 8GB memory', 'http://localhost:8000/api/images/4.jpg', NULL, '2023-04-24 09:58:10'),
 (5, 5, 1, 'Surface Laptop 4', '999.99', 'Sleek laptop for productivity', '13.5-inch PixelSense display, Intel Core i5, up to 16GB memory', 'http://localhost:8000/api/images/5.jpg', NULL, '2023-04-24 09:58:10'),
-(6, 6, 1, 'ThinkPad X1 Carbon', '1599.99', 'Business laptop for professionals', '14-inch FHD display, 11th Gen Intel Core i7, 16GB memory', 'http://localhost:8000/api/images/6.jpg', NULL, '2023-04-24 09:58:10'),
+(55, 1, 4, 'iPad Air', '599.99', 'Powerful and lightweight tablet from Apple', '10.9-inch Liquid Retina display, A14 Bionic chip, up to 256GB storage, Touch ID', 'http://localhost:8000/api/images/55.jpg', NULL, '2023-04-24 09:58:10'),
+/*(6, 6, 1, 'ThinkPad X1 Carbon', '1599.99', 'Business laptop for professionals', '14-inch FHD display, 11th Gen Intel Core i7, 16GB memory', 'http://localhost:8000/api/images/6.jpg', NULL, '2023-04-24 09:58:10'),
 (7, 12, 9, 'GeForce RTX 3080', '699.99', 'Powerful graphics card for gaming', '10GB GDDR6X memory, NVIDIA Ampere architecture', 'http://localhost:8000/api/images/7.jpg', NULL, '2023-04-24 09:58:10'),
 (8, 4, 8, 'OfficeJet Pro 9025e', '329.99', 'All-in-one printer for small businesses', 'Wireless printing, scanning, copying, and faxing', 'http://localhost:8000/api/images/8.jpg', NULL, '2023-04-24 09:58:10'),
 (9, 9, 9, 'Samsung 970 EVO Plus 1TB', '179.99', 'NVMe SSD for high-speed data transfer', 'Sequential read/write speeds up to 3500/3300 MB/s', 'http://localhost:8000/api/images/9.jpg', NULL, '2023-04-24 09:58:10'),
@@ -94,4 +93,4 @@ INSERT INTO `products` (`id`, `brand_id`, `product_type_id`, `name`, `price`, `d
 (58, 5, 4, 'Surface Pro 7', '899.99', 'Windows tablet with detachable keyboard and kickstand', '12.3-inch PixelSense display, 10th Gen Intel Core processors, up to 16GB memory, up to 1TB storage', 'http://localhost:8000/api/images/58.jpg', NULL, '2023-04-24 09:58:10'),
 (59, 9, 4, 'Xperia 1 III', '1199.99', 'Multimedia tablet with 21:9 aspect ratio display', '6.5-inch OLED display, Snapdragon 888 processor, up to 12GB memory, up to 256GB storage', 'http://localhost:8000/api/images/59.jpg', NULL, '2023-04-24 09:58:10'),
 (60, 4, 4, 'HP ElitePad 1000 G2', '799.99', 'Business tablet with durable design and optional dock', '10.1-inch Gorilla Glass display, Intel Atom processor, up to 4GB memory, up to 128GB storage', 'http://localhost:8000/api/images/60.jpg', NULL, '2023-04-24 09:58:10');
-
+*/

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use http\Env\Response;
+
 class ImageController
 {
     public function show($name){
@@ -11,7 +14,7 @@ class ImageController
             return response()->noContent(404);
         }
 
-        return response()->file($url);
+        return response()->file($url, ['Cache-Control' => 'max-age=31536000']);
     }
 
 }
