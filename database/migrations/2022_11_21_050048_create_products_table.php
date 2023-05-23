@@ -16,9 +16,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("brand_id");
-            $table->foreign("brand_id")->references("id")->on("brands");
             $table->unsignedBigInteger("product_type_id");
-            $table->foreign("product_type_id")->references("id")->on("product_types");
             $table->string("name");
             $table->decimal("price");
             $table->string("description");
@@ -26,7 +24,8 @@ return new class extends Migration
             $table->string("imageUrl", 500)->nullable();
             $table->timestamps();
 
-
+            $table->foreign("brand_id")->references("id")->on("brands");
+            $table->foreign("product_type_id")->references("id")->on("product_types");
 
         });
     }

@@ -13,17 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('shipment', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("bill_id");
             $table->unsignedBigInteger("user_id");
-            $table->unsignedBigInteger("payment_method_id");
-            $table->decimal("amount");
+            $table->string('address');
+            $table->string('city');
+            $table->string('state');
+            $table->string('phone_number');
+            $table->string('zipcode');
+            $table->date("estimated_arrival");
+            $table->boolean("delivered");
             $table->timestamps();
 
             $table->foreign("user_id")->references("id")->on("users");
             $table->foreign("bill_id")->references("id")->on("bills");
-            $table->foreign("payment_method_id")->references("id")->on("payment_methods");
         });
     }
 
@@ -34,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('shipment');
     }
 };
