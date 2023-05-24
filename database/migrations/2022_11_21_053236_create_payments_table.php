@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger("user_id");
             $table->unsignedBigInteger("payment_method_id");
             $table->decimal("amount");
+            $table->string("last_4_digits_of_card")->nullable();
             $table->timestamps();
 
             $table->foreign("user_id")->references("id")->on("users");

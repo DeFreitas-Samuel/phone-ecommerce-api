@@ -34,10 +34,6 @@ Route::get('products', [ProductController::class, 'index']);
 Route::get('product/{id}', [ProductController::class, 'show']);
 Route::get('images/{name}', [ImageController::class, 'show']);
 
-Route::get('image/test', [ImageController::class, 'test']);
-
-
-
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/session', [SandboxController::class, 'show']);
     Route::post('/purchase', [PurchaseController::class, 'store']);
