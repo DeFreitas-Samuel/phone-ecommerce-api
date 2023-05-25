@@ -7,8 +7,8 @@ use http\Env\Response;
 
 class ImageController
 {
-    public function show($name){
-        $url = $_SERVER['DOCUMENT_ROOT'] . "\\images\\" . $name;
+    public function show($filename){
+        $url = $_SERVER['DOCUMENT_ROOT'] . "\\images\\" . $filename;
         if( !file_exists($url)){
             
             return response()->noContent(404);

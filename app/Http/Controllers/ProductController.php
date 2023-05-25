@@ -13,8 +13,8 @@ class ProductController extends Controller
         return Product::all();
     }
 
-    public function show(string $id): Product
+    public function show(string $productId): Product
     {
-        return Product::query()->findOrFail($id);
+        return Product::query()->findOrFail($productId);
     }
 }

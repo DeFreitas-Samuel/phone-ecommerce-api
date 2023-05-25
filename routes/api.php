@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\SandboxController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\UserOrdersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,11 +31,12 @@ Route::middleware(['sanctum'])->group(function () {
 
 
 
-Route::get('products', [ProductController::class, 'index']);
-Route::get('product/{id}', [ProductController::class, 'show']);
-Route::get('images/{name}', [ImageController::class, 'show']);
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/product/{productId}', [ProductController::class, 'show']);
+Route::get('/images/{filename}', [ImageController::class, 'show']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/session', [SandboxController::class, 'show']);
     Route::post('/purchase', [PurchaseController::class, 'store']);
+    Route::get('/orders/{userId}', [UserOrdersController::class, 'show']);
 });
