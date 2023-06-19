@@ -13,7 +13,7 @@ class UserOrdersController extends Controller
     public function show(string $userId): Response
     {
         $response =[];
-        $allBillsAssociatedWithUser = Bill::where('user_id',$userId)->get();
+        $allBillsAssociatedWithUser = Bill::where('user_id',$userId)->orderBy('created_at', 'DESC')->get();
         if($allBillsAssociatedWithUser->isEmpty()){
             return response([],200);
         }
