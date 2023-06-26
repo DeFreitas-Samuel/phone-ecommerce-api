@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use database\Seeders\PaymentMethodsTableSeeder;
+use database\Seeders\BrandsTableSeeder;
+use database\Seeders\ProductTypesSeeder;
+use database\Seeders\ProductsSeeder;
+use database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,11 +18,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call([
+            PaymentMethodsTableSeeder::class,
+            BrandsTableSeeder::class,
+            ProductTypesSeeder::class,
+            ProductsSeeder::class,
+            UserSeeder::class
+        ]);
     }
 }

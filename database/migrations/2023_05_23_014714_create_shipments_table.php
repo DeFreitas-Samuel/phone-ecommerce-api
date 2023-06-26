@@ -38,6 +38,14 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shipment');
+        try {
+            Schema::table('shipments', function (Blueprint $table) {
+                $table->dropForeign('shipments_bill_id_foreign');
+                $table->dropForeign('shipments_user_id_foreign');
+            });
+        } catch (Throwable $e) {
+            //Do Nothing
+        }
+        Schema::dropIfExists('shipments');
     }
 };

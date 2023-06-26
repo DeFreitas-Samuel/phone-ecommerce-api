@@ -35,6 +35,15 @@ return new class extends Migration
      */
     public function down()
     {
+        try {
+            Schema::table('payments', function (Blueprint $table) {
+                $table->dropForeign('payments_bill_id_foreign');
+                $table->dropForeign('payments_payment_method_id_foreign');
+                $table->dropForeign('payments_user_id_foreign');
+            });
+        } catch (Throwable $e) {
+            //Do Nothing
+        }
         Schema::dropIfExists('payments');
     }
 };

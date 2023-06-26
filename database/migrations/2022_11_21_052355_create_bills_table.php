@@ -31,6 +31,14 @@ return new class extends Migration
      */
     public function down()
     {
+        try {
+            Schema::table('bills', function (Blueprint $table) {
+                $table->dropForeign('bills_user_id_foreign');
+            });
+        } catch (Throwable $e) {
+            //Do Nothing
+        }
+
         Schema::dropIfExists('bills');
     }
 };

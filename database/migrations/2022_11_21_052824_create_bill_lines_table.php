@@ -24,7 +24,6 @@ return new class extends Migration
 
             $table->foreign("bill_id")->references("id")->on("bills");
             $table->foreign("product_id")->references("id")->on("products");
-
         });
     }
 
@@ -35,6 +34,14 @@ return new class extends Migration
      */
     public function down()
     {
+        try {
+            Schema::table('bill_lines', function (Blueprint $table) {
+                $table->dropForeign('bill_lines_bill_id_foreign');
+                $table->dropForeign('bill_lines_product_id_foreign');
+            });
+        } catch (Throwable $e) {
+            //Do Nothing
+        }
         Schema::dropIfExists('bill_lines');
     }
 };

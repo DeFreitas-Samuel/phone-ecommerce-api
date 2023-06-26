@@ -26,7 +26,6 @@ return new class extends Migration
 
             $table->foreign("brand_id")->references("id")->on("brands");
             $table->foreign("product_type_id")->references("id")->on("product_types");
-
         });
     }
 
@@ -37,6 +36,15 @@ return new class extends Migration
      */
     public function down()
     {
+        try {
+            Schema::table('products', function (Blueprint $table) {
+                $table->dropForeign('products_brand_id_foreign');
+                $table->dropForeign('products_product_type_id_foreign');
+            });
+        } catch (Throwable $e) {
+            //Do Nothing
+        }
+
         Schema::dropIfExists('products');
     }
 };
