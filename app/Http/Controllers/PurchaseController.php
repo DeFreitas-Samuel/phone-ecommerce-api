@@ -51,15 +51,19 @@ class PurchaseController extends Controller
             $bill->save();
 
             foreach ($boughtProductsArray as $product) {
+                $receivedPrice = (float)$product["totalPrice"];
+
                 $billLine = new BillLine();
                 $productBought = Product::find($product["product_id"]);
                 $calculatedPrice = round(($productBought->price * $product["quantity"]), 2);
 
+                
 
                 $billLine->product()->associate($productBought);
 
-                if ($product["totalPrice"] !== $calculatedPrice) {
-                    throw new PriceMismatchException("The price calculated differs from what it was received in the front end");
+                if ($receivedPrice !== $calculatedPrice) {
+                    
+                    throw new PriceMismatchException("The price calculated differs from what it was received");
                 }
 
 
@@ -111,7 +115,7 @@ class PurchaseController extends Controller
             DB::rollBack();
             report($e);
             return response()->json([
-                'error' => $e->getMessage()
+                'error' => $e->getMessage(),
             ], 500);
         }
     }
