@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use database\Seeders\PaymentMethodsTableSeeder;
-use database\Seeders\BrandsTableSeeder;
-use database\Seeders\ProductTypesSeeder;
-use database\Seeders\ProductsSeeder;
-use database\Seeders\UserSeeder;
+// use database\Seeders\PaymentMethodsTableSeeder;
+// use database\Seeders\BrandsTableSeeder;
+// use database\Seeders\ProductTypesSeeder;
+// use database\Seeders\ProductsSeeder;
+// use database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            PaymentMethodsTableSeeder::class,
+            PaymentMethodsSeeder::class,
             BrandsTableSeeder::class,
             ProductTypesSeeder::class,
             ProductsSeeder::class,
