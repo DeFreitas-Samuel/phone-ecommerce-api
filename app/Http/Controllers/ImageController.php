@@ -11,10 +11,10 @@ class ImageController
         $url = $_SERVER['DOCUMENT_ROOT'] . "\\images\\" . $filename;
         if( !file_exists($url)){
             
-            return response()->noContent(404);
+            return response()->json(['not found' => $url],404);
         }
 
-        return response()->file($url, ['Cache-Control' => 'max-age=31536000']);
+        return response()->json(['url'=>$url], 200);
     }
 
 }
