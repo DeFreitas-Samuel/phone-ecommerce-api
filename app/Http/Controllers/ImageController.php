@@ -4,28 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\App;
 
-class ImageController
+class ImageController extends Controller
 {
     public function show($filename)
     {
-        if (App::environment('local')) {
-            $url = $_SERVER['DOCUMENT_ROOT'] . "\\images\\" . $filename;
-            if (!file_exists($url)) {
+        $url = public_path() . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . $filename;
 
-                return response()->json(['not found' => $url], 404);
-            }
 
-            return response()->json(['url' => $url], 200);
+        return $this->getImage($url);
+
+    }
+
+    private function getImage($url){
+        if (!file_exists($url)) {
+            return response()->json(['not found' => $url], 404);
         }
 
-        if (App::environment('production')) {
-            $url = $_SERVER['DOCUMENT_ROOT'] . "/images/" . $filename;
-            if (!file_exists($url)) {
-
-                return response()->json(['not found' => $url], 404);
-            }
-
-            return response()->file($url);
-        }
+        return response()->file($url);
     }
 }
